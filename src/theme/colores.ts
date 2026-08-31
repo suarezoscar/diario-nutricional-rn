@@ -17,6 +17,7 @@ export interface Colores {
   textLight: string
   textSoft: string
   border: string
+  input: string
   error: string
   errorSoft: string
   warning: string
@@ -37,6 +38,7 @@ export const coloresClaros: Colores = {
   textLight: '#999999',
   textSoft: '#b8b8b8',
   border: '#e8e6e1',
+  input: '#f9faf8',
   error: '#c06050',
   errorSoft: '#fbeae7',
   warning: '#c88a4a',
@@ -57,6 +59,7 @@ export const coloresOscuros: Colores = {
   textLight: '#888888',
   textSoft: '#555555',
   border: '#333333',
+  input: '#1a1f1a',
   error: '#e07060',
   errorSoft: '#3a2320',
   warning: '#d0a050',

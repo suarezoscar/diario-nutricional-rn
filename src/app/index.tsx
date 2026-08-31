@@ -1,31 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, View } from 'react-native'
+import { useAuth } from '@/context/AuthContext'
+import { useTheme } from '@/context/ThemeContext'
+import AuthScreen from '@/components/AuthScreen'
+import PantallaPrincipal from '@/components/PantallaPrincipal'
 
 /**
- * Pantalla inicial provisional. En fases posteriores el index mostrará el
- * login o la pantalla principal según el estado de sesión.
+ * Pantalla inicial: actúa de gate de sesión. Mientras Firebase restaura la
+ * sesión se muestra un indicador; si no hay usuario se renderiza el login y,
+ * si lo hay, la pantalla principal.
  */
 export default function IndexScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Diario Nutricional</Text>
-      <Text style={styles.subtitulo}>Aplicación nativa — en construcción</Text>
-    </View>
-  )
+  const { user, loading } = useAuth()
+  const { colores } = useTheme()
+
+  if (loading) {
+    return (
+      <View style={[styles.centro, { backgroundColor: colores.bgStart }]}>
+        <ActivityIndicator size="large" color={colores.primary} />
+      </View>
+    )
+  }
+
+  return user ? <PantallaPrincipal /> : <AuthScreen />
 }
 
 const styles = StyleSheet.create({
-  container: {
+  centro: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
-  },
-  titulo: {
-    fontSize: 22,
-    fontWeight: '700',
-  },
-  subtitulo: {
-    fontSize: 14,
-    opacity: 0.7,
   },
 })
