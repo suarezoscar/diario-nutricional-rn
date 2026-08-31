@@ -21,7 +21,7 @@ export default function IndexScreen() {
     )
   }
 
-  return user ? <PantallaPrincipal /> : <AuthScreen />
+  return user ? <PantallaPrincipal user={user} /> : <AuthScreen />
 }
 
 const styles = StyleSheet.create({
