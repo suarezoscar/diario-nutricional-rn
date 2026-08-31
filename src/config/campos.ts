@@ -1,0 +1,102 @@
+import {
+  AppleLogo,
+  ChatCircleText,
+  Coffee,
+  Drop,
+  ForkKnife,
+  MoonStars,
+  PersonSimpleRun,
+  SunHorizon,
+} from 'phosphor-react-native'
+import type { CampoConfig, ClaveCampoFuera, ClaveComida } from '../types'
+
+/** Mapea cada comida con la clave de su marcador «fuera de casa». */
+export const CLAVE_FUERA_POR_COMIDA: Record<ClaveComida, ClaveCampoFuera> = {
+  desayuno: 'desayunoFuera',
+  mediaManana: 'mediaMananaFuera',
+  comida: 'comidaFuera',
+  merienda: 'meriendaFuera',
+  cena: 'cenaFuera',
+}
+
+/** Configuración de los campos del formulario diario, en orden de aparición. */
+export const CAMPOS: CampoConfig[] = [
+  {
+    key: 'desayuno',
+    label: 'Desayuno',
+    icono: SunHorizon,
+    colorIcono: '#c8985a',
+    ejemplo: 'Tostadas con aguacate',
+    full: true,
+    maxLen: 500,
+    isMeal: true,
+  },
+  {
+    key: 'mediaManana',
+    label: 'Media mañana',
+    icono: Coffee,
+    colorIcono: '#a08060',
+    ejemplo: 'Yogur con frutos secos',
+    maxLen: 500,
+    isMeal: true,
+  },
+  {
+    key: 'comida',
+    label: 'Comida',
+    icono: ForkKnife,
+    colorIcono: '#7a9e7e',
+    ejemplo: 'Ensalada de pollo',
+    full: true,
+    maxLen: 500,
+    isMeal: true,
+  },
+  {
+    key: 'merienda',
+    label: 'Merienda',
+    icono: AppleLogo,
+    colorIcono: '#c87070',
+    ejemplo: 'Batido de frutas',
+    maxLen: 500,
+    isMeal: true,
+  },
+  {
+    key: 'cena',
+    label: 'Cena',
+    icono: MoonStars,
+    colorIcono: '#6a7eb8',
+    ejemplo: 'Pescado al horno con verduras',
+    full: true,
+    maxLen: 500,
+    isMeal: true,
+  },
+  {
+    key: 'agua',
+    label: 'Agua (L)',
+    icono: Drop,
+    colorIcono: '#5a9cc8',
+    ejemplo: '2',
+    tipo: 'numero',
+    step: '0.1',
+    min: '0',
+    max: '10',
+    maxLen: 10,
+  },
+  {
+    key: 'ejercicio',
+    label: 'Ejercicio',
+    icono: PersonSimpleRun,
+    colorIcono: '#9a7a5a',
+    ejemplo: 'Correr 30 min, pesas...',
+    full: true,
+    maxLen: 500,
+  },
+  {
+    key: 'comentarios',
+    label: 'Comentarios',
+    icono: ChatCircleText,
+    colorIcono: '#9a9a9a',
+    ejemplo: 'Notas para el nutricionista...',
+    full: true,
+    maxLen: 1000,
+  },
+]
