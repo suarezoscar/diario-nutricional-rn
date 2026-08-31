@@ -24,6 +24,7 @@ import DailyForm from './DailyForm'
 import WaterGoals from './WaterGoals'
 import WeightTracker from './WeightTracker'
 import ResumenRango from './ResumenRango'
+import ChangePasswordModal from './ChangePasswordModal'
 import type { ClaveDatosRegistro, UsuarioAutenticado } from '../types'
 
 /** Fecha de hoy, calculada una sola vez al cargar la app. */
@@ -43,6 +44,7 @@ export default function PantallaPrincipal({ user }: PantallaPrincipalProps) {
   const toast = useToast()
 
   const [diaSel, setDiaSel] = useState(FECHA_HOY)
+  const [mostrarCambiarPass, setMostrarCambiarPass] = useState(false)
   const scrollRef = useRef<ScrollView>(null)
   /** Posición vertical de la tarjeta del formulario para hacer scroll al editar. */
   const formY = useRef(0)
@@ -120,7 +122,13 @@ export default function PantallaPrincipal({ user }: PantallaPrincipalProps) {
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colores.bgStart }]} edges={['top']}>
-      <Header user={user} onAlternarTema={alternar} onLogout={() => void logout()} />
+      <Header
+        user={user}
+        onAlternarTema={alternar}
+        onCambiarPassword={() => setMostrarCambiarPass(true)}
+        onLogout={() => void logout()}
+      />
+      <ChangePasswordModal visible={mostrarCambiarPass} onClose={() => setMostrarCambiarPass(false)} />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
