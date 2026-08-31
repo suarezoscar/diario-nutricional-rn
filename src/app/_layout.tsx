@@ -1,18 +1,13 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from 'expo-router'
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
+/**
+ * Layout raíz de la aplicación.
+ *
+ * En fases posteriores este layout se envolverá con los proveedores de
+ * tema, toasts y autenticación, y añadirá el gate de sesión. De momento es
+ * una pila de rutas mínima con las cabeceras ocultas (cada pantalla dibuja
+ * la suya propia).
+ */
+export default function RootLayout() {
+  return <Stack screenOptions={{ headerShown: false }} />
 }
