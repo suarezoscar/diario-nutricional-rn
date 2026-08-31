@@ -159,7 +159,7 @@ function BarraAgua({ consumido, meta }: { consumido: number; meta: number }) {
         <View style={[styles.aguaFill, { width: `${porcentaje}%`, backgroundColor: colores.primary }]} />
       </View>
       <Text style={[styles.aguaLabel, { color: colores.textLight }]}>
-        {consumido || '0'} de {meta}L
+        {`${consumido || '0'} de ${meta}L`}
       </Text>
     </View>
   )

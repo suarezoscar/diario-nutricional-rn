@@ -1,56 +1,52 @@
-# Welcome to your Expo app 👋
+# Diario Nutricional (React Native)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación nativa (Expo + React Native) del diario nutricional. Comparte el
+mismo proyecto de Firebase y los mismos datos que la versión web.
 
-## Get started
+## Funcionalidades
 
-1. Install dependencies
+- Registro diario con **guardado automático** (debounce + flush al pasar la app
+  a segundo plano) e indicador de estado por campo.
+- Comidas con marcador «fuera de casa», copiar del día anterior, agua con
+  barra de progreso y metas por rango de fechas.
+- Ejercicio y comentarios con contador de caracteres.
+- Seguimiento de peso con gráfico SVG (`react-native-svg`).
+- Resumen por fechas con **exportación de PDF** (generado en cliente) y
+  apertura en el share-sheet.
+- Autenticación con email/contraseña (login, registro, recuperación y cambio de
+  contraseña) y modo oscuro.
 
-   ```bash
-   npm install
-   ```
+## Stack
 
-2. Start the app
+Expo (SDK 57) · Expo Router · `@react-native-firebase` (auth + firestore) ·
+AsyncStorage · phosphor-react-native · react-native-svg ·
+`@react-native-community/datetimepicker` · react-native-html-to-pdf ·
+expo-sharing · date-fns. Tests con Jest (`jest-expo`) + Testing Library RN.
 
-   ```bash
-   npx expo start
-   ```
+## Requisitos para ejecutar
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Los módulos nativos (Firebase, html-to-pdf) **no funcionan en Expo Go**; se
+necesita un development build:
 
 ```bash
-npm run reset-project
+pnpm install
+pnpm run android   # o pnpm run ios / pnpm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Firebase
 
-### Other setup steps
+La app usa el proyecto `diario-nutricional-9105b`. Para el build nativo coloca
+en la raíz del proyecto (están en `.gitignore`, no se commitean):
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+- `google-services.json` (Android)
+- `GoogleService-Info.plist` (iOS)
 
-## Learn more
+## Scripts
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+pnpm start        # servidor de desarrollo
+pnpm android|ios  # build de desarrollo nativo
+pnpm test         # tests unitarios (Jest)
+pnpm lint         # ESLint de Expo
+pnpm typecheck    # tsc --noEmit
+```
