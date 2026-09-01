@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "diario-nutricional-rn",
-    "slug": "diario-nutricional-rn",
+    "slug": "diario-nutricional",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,6 +38,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b90c0b74-498e-4cb8-91ba-39d57878d206"
+      }
+    },
+    "owner": "osuarezs-team"
   }
 }
