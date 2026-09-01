@@ -5,8 +5,7 @@
   "build": {
     "production": {
       "android": {
-        "buildType": "apk",
-        "googleServicesFile": "./google-services.json"
+        "buildType": "apk"
       }
     }
   }

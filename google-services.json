@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "324028540051",
+    "project_id": "diario-nutricional-9105b",
+    "storage_bucket": "diario-nutricional-9105b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324028540051:android:6e0f35f0dd5b09d0301966",
+        "android_client_info": {
+          "package_name": "com.suarezoscar.diario"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3KJh6mjz412e95euPLzY-8p_j2Ke0ZuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
